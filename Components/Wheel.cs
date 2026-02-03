@@ -25,6 +25,10 @@ namespace CustomWeapons.Components
 			{
 				wheelCollider.motorTorque = motor;
 			}
+			else
+			{
+				wheelCollider.motorTorque = 1f; // i think this is the issue?
+			}
 			wheelCollider.brakeTorque = brake;
 		}
 		
