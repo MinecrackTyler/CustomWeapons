@@ -1,4 +1,5 @@
 using System;
+using CustomWeapons.Utils;
 using UnityEngine;
 
 namespace CustomWeapons.Components
@@ -166,7 +167,7 @@ namespace CustomWeapons.Components
 			float rpmRatio = rpm / maxRPM;
 			if (Time.timeSinceLevelLoad > lastShiftTime + shiftDelay)
 			{
-				switch (rpmRatio)
+				switch (Math.Abs(rpmRatio))
 				{
 					case > 0.9f when currentGear < gearRatios.Length - 1:
 						currentGear++;
@@ -177,14 +178,13 @@ namespace CustomWeapons.Components
 				}
 			}
 
-			
-			
-			float rpm01 = Mathf.Clamp01(Mathf.Abs(rpm) / maxRPM);
+
+			float torqueFactor = 0.5f;
+			float rpm01 = Mathf.Clamp(Mathf.Abs(rpm) / maxRPM, 0.01f, 0.99f);
 			if (!float.IsNaN(rpm01) && !float.IsInfinity(rpm01))
 			{
-				torqueCurve.Evaluate(rpm01);
+				torqueFactor = torqueCurve.EvaluateNormalizedTime(rpm01);
 			}
-			float torqueFactor = torqueCurve.Evaluate(rpm01);
 			currentTorque = throttle * torqueFactor * maxTorque * gearRatios[currentGear] * finalDrive;
 			
 			float torquePerWheel = currentTorque / wheels.Length;
