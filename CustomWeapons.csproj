@@ -3,22 +3,46 @@
     <PropertyGroup>
         <TargetFramework>net472</TargetFramework>
         <Nullable>enable</Nullable>
-        <UnityPluginsDir>/home/tylerb/unity/exports/Nuclear Option/ExportedProject/Assets/Plugins/</UnityPluginsDir>
-        <ModDir>/run/media/tylerb/35c44c47-6960-4d59-b132-5a19c9d5e8c8/SteamLibrary/steamapps/common/Nuclear Option/BepInEx/plugins/CustomWeapons/</ModDir>
+        <AssemblyName>com.minec.customweapons</AssemblyName>
+        <Product>CustomWeapons</Product>
+        <Version>1.1.0</Version>
+        <UnityPluginsDir>/home/tylerb/Unity/Projects/Nuclear Option/NOBlueprinter/Assets/Plugins/CustomWeapons</UnityPluginsDir>
         <LangVersion>9</LangVersion>
         <NoStdLib>true</NoStdLib>
         <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
         <RootNamespace>CustomWeapons</RootNamespace>
     </PropertyGroup>
 
-    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <!-- Copy DLL to Unity Plugins -->
+<!--    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        &lt;!&ndash; Copy DLL to Unity Plugins &ndash;&gt;
         <Exec Command="cp &quot;$(TargetDir)CustomWeapons.dll&quot; &quot;/run/media/tylerb/35c44c47-6960-4d59-b132-5a19c9d5e8c8/SteamLibrary/steamapps/common/Nuclear Option/BepInEx/plugins/CustomWeapons/&quot;" />
-        <!-- Copy DLL to Mod folder -->
+        &lt;!&ndash; Copy DLL to Mod folder &ndash;&gt;
         <Exec Command="cp &quot;$(TargetDir)CustomWeapons.dll&quot; &quot;/home/tylerb/unity/exports/Nuclear Option/ExportedProject/Assets/Plugins/&quot;" />
-        <!-- Copy DLL to Mod folder -->
+        &lt;!&ndash; Copy DLL to Mod folder &ndash;&gt;
         <Exec Command="cp &quot;$(TargetDir)CustomWeapons.dll&quot; &quot;/home/tylerb/Unity/Projects/Nuclear Option/NOBlueprinter/Assets/Plugins/CustomWeapons/&quot;" />
+    </Target>-->
+
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Exec Command="mkdir -p &quot;$(BepInExPluginsDir)&quot;" />
+
+        <Exec Command="cp &quot;$(TargetPath)&quot; &quot;$(BepInExPluginsDir)/$(Product)_$(Version)$(TargetExt)&quot;" />
+
+        <Exec Command="cp &quot;$(TargetPath)&quot; &quot;$(UnityPluginsDir)/$(Product)$(TargetExt)&quot;" />
+
     </Target>
+    
+<!--    <Target Name="CopyBepInExPluginVersioned" AfterTargets="Build">
+        <MakeDir Directories="$(BepInExPluginsDir)" />
+        <Copy
+                SourceFiles="$(TargetPath)"
+                DestinationFiles="$(BepInExPluginsDir)\$(Product)_$(Version)$(TargetExt)"
+                SkipUnchangedFiles="true" />
+        <Copy
+                SourceFiles="$(TargetPath)"
+                DestinationFiles="$(UnityPluginsDir)\$(Product)$(TargetExt)"
+                SkipUnchangedFiles="true" />
+    </Target>-->
 
     <ItemGroup>
       <PackageReference Include="BepInEx.Core" Version="5.*" />
