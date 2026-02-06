@@ -21,65 +21,61 @@
     </Target>
 
     <ItemGroup>
-        <Reference Include="0Harmony">
-            <HintPath>libs\0Harmony.dll</HintPath>
-        </Reference>
+      <PackageReference Include="BepInEx.Core" Version="5.*" />
+      <PackageReference Include="UnityEngine.Modules" Version="2022.3.62" IncludeAssets="compile" />
+    </ItemGroup>
+
+    <ItemGroup>
         <Reference Include="Assembly-CSharp">
-          <HintPath>libs\Assembly-CSharp.dll</HintPath>
-        </Reference>
-        <Reference Include="BepInEx">
-            <HintPath>libs\BepInEx.dll</HintPath>
+          <HintPath>$(GameManagedDir)\Assembly-CSharp.dll</HintPath>
         </Reference>
         <Reference Include="Mirage">
-            <HintPath>libs\Mirage.dll</HintPath>
+            <HintPath>$(GameManagedDir)\Mirage.dll</HintPath>
         </Reference>
         <Reference Include="mscorlib">
-          <HintPath>libs\mscorlib.dll</HintPath>
+          <HintPath>$(GameManagedDir)\mscorlib.dll</HintPath>
         </Reference>
         <Reference Include="netstandard">
-          <HintPath>libs\netstandard.dll</HintPath>
-        </Reference>
-        <Reference Include="Newtonsoft.Json">
-            <HintPath>libs\Newtonsoft.Json.dll</HintPath>
+          <HintPath>$(GameManagedDir)\netstandard.dll</HintPath>
         </Reference>
         <Reference Include="UniTask">
-          <HintPath>libs\UniTask.dll</HintPath>
+          <HintPath>$(GameManagedDir)\UniTask.dll</HintPath>
         </Reference>
         <Reference Include="Unity.RenderPipelines.Core.Runtime">
-          <HintPath>libs\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+          <HintPath>$(GameManagedDir)\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
         </Reference>
         <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-          <HintPath>libs\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+          <HintPath>$(GameManagedDir)\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
         </Reference>
         <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-          <HintPath>libs\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+          <HintPath>$(GameManagedDir)\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine">
-            <HintPath>libs\UnityEngine.dll</HintPath>
+          <HintPath>$(GameManagedDir)\UnityEngine.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.AssetBundleModule">
-            <HintPath>libs\UnityEngine.AssetBundleModule.dll</HintPath>
+          <HintPath>$(GameManagedDir)\UnityEngine.AssetBundleModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.AudioModule">
-            <HintPath>libs\UnityEngine.AudioModule.dll</HintPath>
+          <HintPath>$(GameManagedDir)\UnityEngine.AudioModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">
-            <HintPath>libs\UnityEngine.CoreModule.dll</HintPath>
+          <HintPath>$(GameManagedDir)\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.ImageConversionModule">
-            <HintPath>libs\UnityEngine.ImageConversionModule.dll</HintPath>
+          <HintPath>$(GameManagedDir)\UnityEngine.ImageConversionModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.ParticleSystemModule">
-            <HintPath>libs\UnityEngine.ParticleSystemModule.dll</HintPath>
+          <HintPath>$(GameManagedDir)\UnityEngine.ParticleSystemModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.PhysicsModule">
-            <HintPath>libs\UnityEngine.PhysicsModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.UI">
-          <HintPath>libs\UnityEngine.UI.dll</HintPath>
+          <HintPath>$(GameManagedDir)\UnityEngine.PhysicsModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.VehiclesModule">
-          <HintPath>libs\UnityEngine.VehiclesModule.dll</HintPath>
+          <HintPath>$(GameManagedDir)\UnityEngine.VehiclesModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UI">
+            <HintPath>$(GameManagedDir)\UnityEngine.UI.dll</HintPath>
         </Reference>
     </ItemGroup>
 
